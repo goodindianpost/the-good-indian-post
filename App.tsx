@@ -4,7 +4,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import CategoryPage from './pages/CategoryPage';
 import ArticlePage from './pages/ArticlePage';
-import { AboutPage, ContactPage } from './pages/StaticPages';
+import { AboutPage } from './pages/StaticPages';
 
 // Admin imports
 import { Login } from './src/admin/pages/Login';
@@ -42,7 +42,6 @@ const App: React.FC = () => {
         <Route path="/category/:categoryName" element={<Layout><CategoryPage /></Layout>} />
         <Route path="/article/:slug" element={<Layout><ArticlePage /></Layout>} />
         <Route path="/about" element={<Layout><AboutPage /></Layout>} />
-        <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
       </Routes>
     </Router>
   );

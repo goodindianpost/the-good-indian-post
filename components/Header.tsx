@@ -99,9 +99,6 @@ const Header: React.FC = () => {
             <Link to="/about" onClick={() => setIsMenuOpen(false)} className="block text-sm font-semibold text-gray-500 uppercase tracking-wide hover:text-brand-black transition-colors">
               About Us
             </Link>
-            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block text-sm font-semibold text-gray-500 uppercase tracking-wide hover:text-brand-black transition-colors">
-              Contact
-            </Link>
           </div>
         </div>
       </div>
