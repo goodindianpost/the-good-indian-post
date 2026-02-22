@@ -38,8 +38,6 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><Link to="/about" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">Contact</Link></li>
-              <li><Link to="/support" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">Advertise</Link></li>
-              <li><Link to="/support" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">Careers</Link></li>
             </ul>
           </div>
 
@@ -62,11 +60,6 @@ const Footer: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl py-4 md:py-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
             <p>&copy; {new Date().getFullYear()} The Good Indian Post. All rights reserved.</p>
-            <div className="flex gap-5">
-              <Link to="/" className="hover:text-brand-black transition-colors">Privacy</Link>
-              <Link to="/" className="hover:text-brand-black transition-colors">Terms</Link>
-              <Link to="/" className="hover:text-brand-black transition-colors">Cookies</Link>
-            </div>
           </div>
         </div>
       </div>
