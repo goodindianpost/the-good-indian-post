@@ -41,17 +41,17 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
   const showNoResults = hasQuery && !loading && results.length === 0;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-24" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-24" onClick={onClose}>
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Modal */}
       <div
-        className="relative bg-white w-full max-w-2xl mx-4 shadow-2xl max-h-[70vh] flex flex-col"
+        className="relative bg-white w-full max-w-2xl mx-3 sm:mx-4 shadow-2xl max-h-[75vh] sm:max-h-[70vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input */}
-        <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-200">
+        <div className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
           <Search size={18} className="text-gray-400 flex-shrink-0" />
           <input
             ref={inputRef}
@@ -59,7 +59,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search articles..."
-            className="flex-1 text-lg font-display text-brand-black placeholder:text-gray-300 focus:outline-none"
+            className="flex-1 text-base sm:text-lg font-display text-brand-black placeholder:text-gray-300 focus:outline-none"
           />
           <button onClick={onClose} className="p-1 text-gray-400 hover:text-brand-black transition-colors flex-shrink-0">
             <X size={20} />
@@ -67,7 +67,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Results area */}
-        <div className="overflow-y-auto px-6 py-5">
+        <div className="overflow-y-auto px-4 sm:px-6 py-4 sm:py-5">
 
           {loading && (
             <p className="text-sm text-gray-400 uppercase tracking-widest">Searching...</p>

@@ -20,8 +20,8 @@ const Header: React.FC = () => {
     <>
       <header className="relative z-40 bg-white">
         {/* Top Row: Menu | Logo | Actions */}
-        <div className="container mx-auto px-6 max-w-screen-xl">
-          <div className="flex items-center justify-between py-10">
+        <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl">
+          <div className="flex items-center justify-between py-5 md:py-8 lg:py-10">
 
             {/* Left - Menu toggle (mobile & desktop) */}
             <button onClick={() => setIsMenuOpen(true)} className="p-1 text-brand-black">
@@ -30,7 +30,7 @@ const Header: React.FC = () => {
 
             {/* Center - Logo */}
             <Link to="/" className="absolute left-1/2 -translate-x-1/2">
-              <img src="/images/logo.png" alt="The Good Indian Post" className="h-20 md:h-24" />
+              <img src="/images/logo.png" alt="The Good Indian Post" className="h-12 sm:h-16 md:h-20 lg:h-24" />
             </Link>
 
             {/* Right - Search */}
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
 
         {/* Bottom Row: Category Nav (desktop) */}
         <nav className="hidden md:block border-t border-gray-200">
-          <div className="container mx-auto px-6 max-w-screen-xl">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl">
             <div className="flex items-center justify-center gap-10 py-3">
               {categories.map((cat) => (
                 <Link
@@ -70,7 +70,7 @@ const Header: React.FC = () => {
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <div
-        className={`fixed top-0 left-0 z-50 h-full w-80 bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out font-display ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`fixed top-0 left-0 z-50 h-full w-72 sm:w-80 bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-in-out font-display ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="px-6 py-5 flex justify-between items-center border-b border-gray-200">
           <Link to="/" onClick={() => setIsMenuOpen(false)}>

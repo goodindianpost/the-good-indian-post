@@ -128,23 +128,23 @@ export function ArticleList() {
   return (
     <div>
       {/* Header */}
-      <div className="flex justify-between items-end mb-10">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-6 md:mb-10">
         <div>
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Manage</p>
-          <h1 className="text-3xl font-bold text-brand-black tracking-tight">Articles</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-brand-black tracking-tight">Articles</h1>
         </div>
         <Link
           to="/admin/articles/new"
-          className="flex items-center gap-2 bg-brand-red text-white px-5 py-2.5 text-sm font-semibold uppercase tracking-wider hover:bg-brand-black transition-colors"
+          className="flex items-center justify-center gap-2 bg-brand-red text-white px-5 py-2.5 text-sm font-semibold uppercase tracking-wider hover:bg-brand-black transition-colors"
         >
           <Plus size={16} /> New Article
         </Link>
       </div>
 
       {/* Search + Filters */}
-      <div className="flex flex-col md:flex-row gap-3 mb-6">
+      <div className="space-y-3 mb-6">
         {/* Search */}
-        <div className="relative flex-1">
+        <div className="relative">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             type="text"
@@ -155,52 +155,55 @@ export function ArticleList() {
           />
         </div>
 
-        {/* Status filter */}
-        <div className="relative">
-          <select
-            value={filterStatus}
-            onChange={e => setFilterStatus(e.target.value)}
-            className="text-xs bg-white border border-gray-200 pl-3 pr-8 py-2.5 focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none"
-          >
-            <option value="">All Statuses</option>
-            {statusOptions.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-          </select>
-          <ChevronDown size={12} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-        </div>
+        {/* Filter row */}
+        <div className="flex gap-2 items-center">
+          {/* Status filter */}
+          <div className="relative flex-1">
+            <select
+              value={filterStatus}
+              onChange={e => setFilterStatus(e.target.value)}
+              className="w-full text-xs bg-white border border-gray-200 pl-3 pr-7 py-2.5 focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none"
+            >
+              <option value="">All Statuses</option>
+              {statusOptions.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+            </select>
+            <ChevronDown size={12} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+          </div>
 
-        {/* Category filter */}
-        <div className="relative">
-          <select
-            value={filterCategory}
-            onChange={e => setFilterCategory(e.target.value)}
-            className="text-xs bg-white border border-gray-200 pl-3 pr-8 py-2.5 focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none"
-          >
-            <option value="">All Categories</option>
-            {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
-          </select>
-          <ChevronDown size={12} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-        </div>
+          {/* Category filter */}
+          <div className="relative flex-1">
+            <select
+              value={filterCategory}
+              onChange={e => setFilterCategory(e.target.value)}
+              className="w-full text-xs bg-white border border-gray-200 pl-3 pr-7 py-2.5 focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none"
+            >
+              <option value="">All Categories</option>
+              {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+            </select>
+            <ChevronDown size={12} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+          </div>
 
-        {/* Featured filter */}
-        <div className="relative">
-          <select
-            value={filterFeatured}
-            onChange={e => setFilterFeatured(e.target.value)}
-            className="text-xs bg-white border border-gray-200 pl-3 pr-8 py-2.5 focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none"
-          >
-            <option value="">All</option>
-            <option value="yes">Featured</option>
-            <option value="no">Not Featured</option>
-          </select>
-          <ChevronDown size={12} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-        </div>
+          {/* Featured filter */}
+          <div className="relative flex-1">
+            <select
+              value={filterFeatured}
+              onChange={e => setFilterFeatured(e.target.value)}
+              className="w-full text-xs bg-white border border-gray-200 pl-3 pr-7 py-2.5 focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none"
+            >
+              <option value="">All</option>
+              <option value="yes">Featured</option>
+              <option value="no">Not Featured</option>
+            </select>
+            <ChevronDown size={12} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+          </div>
 
-        {/* Clear filters */}
-        {hasFilters && (
-          <button onClick={clearFilters} className="flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-brand-red transition-colors cursor-pointer px-2">
-            <X size={14} /> Clear
-          </button>
-        )}
+          {/* Clear filters */}
+          {hasFilters && (
+            <button onClick={clearFilters} className="flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-brand-red transition-colors cursor-pointer flex-shrink-0 px-1">
+              <X size={14} /> Clear
+            </button>
+          )}
+        </div>
       </div>
 
       {articles.length === 0 ? (
@@ -231,71 +234,63 @@ export function ArticleList() {
               </div>
             )}
             {filteredArticles.map(article => (
-              <div key={article.id} className="group grid grid-cols-1 md:grid-cols-[1fr_150px_120px_70px_120px_100px_80px] gap-2 md:gap-4 items-center px-6 py-3.5 hover:bg-gray-50 transition-colors">
-                {/* Title + Author */}
-                <div className="min-w-0">
-                  <Link to={`/admin/articles/${article.id}`} className="font-semibold text-sm text-brand-black tracking-tight hover:text-brand-red transition-colors truncate block">
-                    {article.title}
-                  </Link>
-                  <span className="text-xs text-gray-400">{article.author_name || '--'}</span>
+              <div key={article.id} className="group hover:bg-gray-50 transition-colors">
+                {/* Desktop: table row */}
+                <div className="hidden md:grid grid-cols-[1fr_150px_120px_70px_120px_100px_80px] gap-4 items-center px-6 py-3.5">
+                  <div className="min-w-0">
+                    <Link to={`/admin/articles/${article.id}`} className="font-semibold text-sm text-brand-black tracking-tight hover:text-brand-red transition-colors truncate block">
+                      {article.title}
+                    </Link>
+                    <span className="text-xs text-gray-400">{article.author_name || '--'}</span>
+                  </div>
+                  <div className="relative">
+                    <select value={article.category_id || ''} onChange={e => updateArticle(article.id, { category_id: e.target.value || null })} className="w-full text-xs text-gray-600 bg-white border border-gray-200 hover:border-gray-300 focus:border-brand-red focus:outline-none pl-2 pr-7 py-1.5 transition-colors cursor-pointer appearance-none">
+                      <option value="">None</option>
+                      {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                    </select>
+                    <ChevronDown size={12} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  </div>
+                  <div className="relative">
+                    <select value={article.status} onChange={e => updateArticle(article.id, { status: e.target.value })} className={`w-full text-xs font-medium border pl-2 pr-7 py-1.5 focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none ${statusStyles[article.status] || 'text-gray-600 border-gray-200'}`}>
+                      {statusOptions.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+                    </select>
+                    <ChevronDown size={12} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  </div>
+                  <div className="flex items-center gap-1 text-xs text-gray-400"><Eye size={12} />{article.view_count.toLocaleString()}</div>
+                  <div className="text-xs text-gray-400">{new Date(article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+                  <div className="flex justify-center">
+                    <button onClick={() => updateArticle(article.id, { featured: !article.featured })} disabled={!article.featured && featuredCount >= 5} className={`p-1.5 transition-colors ${article.featured ? 'text-brand-red' : featuredCount >= 5 ? 'text-gray-200 cursor-not-allowed' : 'text-gray-300 hover:text-gray-400'}`} title={article.featured ? 'Remove from featured' : featuredCount >= 5 ? 'Max 5 featured articles' : 'Mark as featured'}>
+                      <Star size={15} fill={article.featured ? 'currentColor' : 'none'} />
+                    </button>
+                  </div>
+                  <div className="flex items-center justify-end gap-1">
+                    <Link to={`/admin/articles/${article.id}`} className="p-1.5 text-gray-400 hover:text-brand-black transition-colors"><Edit size={15} /></Link>
+                    <button onClick={() => deleteArticle(article.id)} className="p-1.5 text-gray-400 hover:text-brand-red transition-colors"><Trash2 size={15} /></button>
+                  </div>
                 </div>
 
-                {/* Category — inline select */}
-                <div className="relative">
-                  <select
-                    value={article.category_id || ''}
-                    onChange={e => updateArticle(article.id, { category_id: e.target.value || null })}
-                    className="w-full text-xs text-gray-600 bg-white border border-gray-200 hover:border-gray-300 focus:border-brand-red focus:outline-none pl-2 pr-7 py-1.5 transition-colors cursor-pointer appearance-none"
-                  >
-                    <option value="">None</option>
-                    {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
-                  </select>
-                  <ChevronDown size={12} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                </div>
-
-                {/* Status — inline select */}
-                <div className="relative">
-                  <select
-                    value={article.status}
-                    onChange={e => updateArticle(article.id, { status: e.target.value })}
-                    className={`w-full text-xs font-medium border pl-2 pr-7 py-1.5 focus:outline-none focus:border-brand-red transition-colors cursor-pointer appearance-none ${statusStyles[article.status] || 'text-gray-600 border-gray-200'}`}
-                  >
-                    {statusOptions.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-                  </select>
-                  <ChevronDown size={12} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
-                </div>
-
-                {/* Views */}
-                <div className="flex items-center gap-1 text-xs text-gray-400">
-                  <Eye size={12} />
-                  {article.view_count.toLocaleString()}
-                </div>
-
-                {/* Date */}
-                <div className="text-xs text-gray-400">
-                  {new Date(article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                </div>
-
-                {/* Featured — inline toggle */}
-                <div className="flex justify-center">
-                  <button
-                    onClick={() => updateArticle(article.id, { featured: !article.featured })}
-                    disabled={!article.featured && featuredCount >= 5}
-                    className={`p-1.5 transition-colors ${article.featured ? 'text-brand-red' : featuredCount >= 5 ? 'text-gray-200 cursor-not-allowed' : 'text-gray-300 hover:text-gray-400'}`}
-                    title={article.featured ? 'Remove from featured' : featuredCount >= 5 ? 'Max 5 featured articles' : 'Mark as featured'}
-                  >
-                    <Star size={15} fill={article.featured ? 'currentColor' : 'none'} />
-                  </button>
-                </div>
-
-                {/* Actions */}
-                <div className="flex items-center justify-end gap-1">
-                  <Link to={`/admin/articles/${article.id}`} className="p-1.5 text-gray-400 hover:text-brand-black transition-colors">
-                    <Edit size={15} />
-                  </Link>
-                  <button onClick={() => deleteArticle(article.id)} className="p-1.5 text-gray-400 hover:text-brand-red transition-colors">
-                    <Trash2 size={15} />
-                  </button>
+                {/* Mobile: card layout */}
+                <div className="md:hidden px-4 py-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1 min-w-0">
+                      <Link to={`/admin/articles/${article.id}`} className="font-semibold text-sm text-brand-black tracking-tight hover:text-brand-red transition-colors line-clamp-2 block">
+                        {article.title}
+                      </Link>
+                      <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                        <span className={`text-[10px] font-medium px-2 py-0.5 ${statusStyles[article.status] || 'text-gray-600 border-gray-200'} border`}>{article.status}</span>
+                        {article.category && <span className="text-[10px] text-gray-500">{article.category.name}</span>}
+                        <span className="text-[10px] text-gray-400">{new Date(article.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                        <span className="text-[10px] text-gray-400 flex items-center gap-0.5"><Eye size={10} />{article.view_count.toLocaleString()}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-0.5 flex-shrink-0">
+                      <button onClick={() => updateArticle(article.id, { featured: !article.featured })} disabled={!article.featured && featuredCount >= 5} className={`p-1.5 transition-colors ${article.featured ? 'text-brand-red' : 'text-gray-300'}`}>
+                        <Star size={14} fill={article.featured ? 'currentColor' : 'none'} />
+                      </button>
+                      <Link to={`/admin/articles/${article.id}`} className="p-1.5 text-gray-400"><Edit size={14} /></Link>
+                      <button onClick={() => deleteArticle(article.id)} className="p-1.5 text-gray-400"><Trash2 size={14} /></button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

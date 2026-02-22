@@ -77,8 +77,8 @@ const Home: React.FC = () => {
       {/* ─── TRENDING STRIP ─── */}
       {trending.length > 0 && (
         <section className="bg-white border-y border-gray-200">
-          <div className="container mx-auto px-6 max-w-screen-xl">
-            <div className="flex items-center gap-6 py-3.5">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl">
+            <div className="flex items-center gap-3 sm:gap-6 py-3">
               <div className="flex items-center gap-2 flex-shrink-0">
                 <TrendingUp size={14} className="text-brand-red" />
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-red">Trending</span>
@@ -111,13 +111,13 @@ const Home: React.FC = () => {
       {/* ─── LATEST STORIES ─── */}
       {latestStories.length > 0 && (
         <section className="bg-white">
-          <div className="container mx-auto px-6 max-w-screen-xl pt-16 pb-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl pt-10 pb-12 md:pt-16 md:pb-20">
             <SectionHeader title="Latest Stories" color="#FF1001" />
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
               <div className="lg:col-span-7">
                 <ArticleCard article={latestStories[0]} variant="featured" />
               </div>
-              <div className="lg:col-span-5 flex flex-col gap-7">
+              <div className="lg:col-span-5 flex flex-col gap-5 lg:gap-7">
                 {latestStories.slice(1, 4).map(article => (
                   <ArticleCard key={article.id} article={article} variant="horizontal" />
                 ))}
@@ -130,9 +130,9 @@ const Home: React.FC = () => {
       {/* ─── CULTURE ─── */}
       {cultureStories.length > 0 && (
         <section className="bg-white">
-          <div className="container mx-auto px-6 max-w-screen-xl pt-16 pb-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl pt-10 pb-12 md:pt-16 md:pb-20">
             <SectionHeader title="Culture" color="#FF1001" href="/category/culture" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
               {cultureStories.map(article => <ArticleCard key={article.id} article={article} variant="standard" />)}
             </div>
           </div>
@@ -142,13 +142,13 @@ const Home: React.FC = () => {
       {/* ─── GOOD INDIANS + GLOBAL INDIANS ─── */}
       {goodIndiansStories.length > 0 && (
         <section className="bg-white">
-          <div className="container mx-auto px-6 max-w-screen-xl pt-16 pb-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl pt-10 pb-12 md:pt-16 md:pb-20">
             <SectionHeader title="Good Indians" color="#FF1001" href="/category/good-indians" />
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
               <div className="lg:col-span-7">
                 <ArticleCard article={goodIndiansStories[0]} variant="featured" />
               </div>
-              <div className="lg:col-span-5 flex flex-col gap-7">
+              <div className="lg:col-span-5 flex flex-col gap-5 lg:gap-7">
                 {goodIndiansStories.slice(1, 4).map(article => <ArticleCard key={article.id} article={article} variant="horizontal" />)}
               </div>
             </div>
@@ -159,9 +159,9 @@ const Home: React.FC = () => {
       {/* ─── NEWS & POLITICS ─── */}
       {newsStories.length > 0 && (
         <section className="bg-white">
-          <div className="container mx-auto px-6 max-w-screen-xl pt-16 pb-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl pt-10 pb-12 md:pt-16 md:pb-20">
             <SectionHeader title="News & Politics" color="#FF1001" href="/category/news" />
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
               <div className="lg:col-span-8">
                 <ArticleCard article={newsStories[0]} variant="featured" />
               </div>
@@ -175,7 +175,7 @@ const Home: React.FC = () => {
                     <span className="text-sm text-gray-400 block mb-1.5">
                       {article.published_at && new Date(article.published_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
                     </span>
-                    <h4 className="font-display text-xl font-semibold tracking-tight leading-snug text-brand-black group-hover:text-brand-red transition-colors duration-200">{article.title}</h4>
+                    <h4 className="font-display text-base sm:text-lg lg:text-xl font-semibold tracking-tight leading-snug text-brand-black group-hover:text-brand-red transition-colors duration-200 line-clamp-3">{article.title}</h4>
                   </Link>
                 ))}
               </div>
@@ -187,9 +187,9 @@ const Home: React.FC = () => {
       {/* ─── FILM ─── */}
       {filmStories.length > 0 && (
         <section className="bg-white">
-          <div className="container mx-auto px-6 max-w-screen-xl pt-16 pb-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl pt-10 pb-12 md:pt-16 md:pb-20">
             <SectionHeader title="Film" color="#FF1001" href="/category/film" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
               {filmStories.map(article => <ArticleCard key={article.id} article={article} variant="standard" />)}
             </div>
           </div>
@@ -199,7 +199,7 @@ const Home: React.FC = () => {
       {/* ─── LITERATURE ─── */}
       {literatureStories.length > 0 && (
         <section className="bg-white">
-          <div className="container mx-auto px-6 max-w-screen-xl pt-16 pb-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl pt-10 pb-12 md:pt-16 md:pb-20">
             <SectionHeader title="Literature" color="#FF1001" href="/category/literature" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
               {literatureStories.map((article, i) => (
@@ -208,7 +208,7 @@ const Home: React.FC = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
                     {typeof article.category === 'object' ? article.category?.name : article.category}
                   </span>
-                  <h3 className="font-display text-2xl font-bold tracking-tight leading-snug text-brand-black mb-3 group-hover:text-brand-red transition-colors duration-200">
+                  <h3 className="font-display text-xl md:text-2xl font-bold tracking-tight leading-snug text-brand-black mb-3 group-hover:text-brand-red transition-colors duration-200 line-clamp-3">
                     {article.title}
                   </h3>
                   {article.excerpt && (
@@ -224,9 +224,9 @@ const Home: React.FC = () => {
       {/* ─── MORE STORIES ─── */}
       {moreStories.length > 0 && (
         <section className="bg-white">
-          <div className="container mx-auto px-6 max-w-screen-xl pt-16 pb-20">
+          <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl pt-10 pb-12 md:pt-16 md:pb-20">
             <SectionHeader title="More Stories" color="#FF1001" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
               {moreStories.map(article => <ArticleCard key={article.id} article={article} variant="standard" />)}
             </div>
           </div>
@@ -256,24 +256,24 @@ function HeroCarousel({ articles }: { articles: any[] }) {
 
   return (
     <section className="bg-white relative">
-      <div className="container mx-auto px-6 max-w-screen-xl py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl py-8 md:py-14 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 lg:gap-14 items-center">
           <div className="order-2 lg:order-1">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-1.5 font-display text-sm font-medium text-gray-800">
+            <div className="flex items-center gap-3 mb-3 md:mb-6">
+              <span className="inline-flex items-center gap-1.5 font-display text-xs sm:text-sm font-medium text-gray-800">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
                 {article.category?.name}
               </span>
-              <span className="text-sm text-gray-400">
+              <span className="text-xs sm:text-sm text-gray-400">
                 {article.published_at && new Date(article.published_at).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}
               </span>
             </div>
             <Link to={`/article/${article.slug}`} className="group">
-              <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.08] mb-6 text-brand-black group-hover:text-brand-red transition-colors duration-200">
+              <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold tracking-tight leading-[1.08] mb-4 md:mb-6 text-brand-black group-hover:text-brand-red transition-colors duration-200">
                 {article.title}
               </h1>
             </Link>
-            <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">{article.excerpt}</p>
+            <p className="text-base md:text-lg text-gray-500 leading-relaxed mb-5 md:mb-8 max-w-lg line-clamp-3 md:line-clamp-none">{article.excerpt}</p>
             <div className="flex items-center justify-between">
               <span className="text-sm font-semibold uppercase tracking-wider text-gray-400">{article.author_name}</span>
               {total > 1 && (
@@ -315,9 +315,9 @@ function HeroCarousel({ articles }: { articles: any[] }) {
 // ─── Section Header ─── //
 function SectionHeader({ title, color, href }: { title: string; color?: string; href?: string }) {
   return (
-    <div className="flex items-center gap-4 mb-10">
-      {color && <span className="w-1 h-8 flex-shrink-0" style={{ backgroundColor: color }} />}
-      <h2 className="font-display text-2xl font-bold tracking-tight">{title}</h2>
+    <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10">
+      {color && <span className="w-1 h-6 md:h-8 flex-shrink-0" style={{ backgroundColor: color }} />}
+      <h2 className="font-display text-xl md:text-2xl font-bold tracking-tight">{title}</h2>
       {href && (
         <Link to={href} className="ml-auto flex items-center gap-1.5 text-sm font-medium text-gray-400 hover:text-brand-black transition-colors">
           View All

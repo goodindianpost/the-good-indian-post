@@ -41,19 +41,19 @@ const CategoryPage: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto px-6 max-w-screen-xl py-12">
+    <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl py-8 md:py-12">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
         {/* Main Content */}
         <div className="lg:col-span-8">
-          <header className="mb-10">
-            <h1 className="text-3xl font-display font-bold tracking-tight text-brand-black mb-3">{categoryDisplayName}</h1>
-            <p className="text-lg text-gray-dark font-serif">
+          <header className="mb-6 md:mb-10">
+            <h1 className="text-2xl md:text-3xl font-display font-bold tracking-tight text-brand-black mb-2 md:mb-3">{categoryDisplayName}</h1>
+            <p className="text-base md:text-lg text-gray-dark font-serif">
               Discover the latest stories, news, and perspectives in {categoryDisplayName}.
             </p>
           </header>
 
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-6 md:gap-10">
             {articles.map((article) => (
               <ArticleCard key={article.id} article={article} variant="horizontal" showDescription />
             ))}

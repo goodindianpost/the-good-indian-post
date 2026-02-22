@@ -2,11 +2,11 @@ import React from 'react';
 
 export const SupportPage: React.FC = () => {
   return (
-    <div className="container mx-auto px-6 py-20 max-w-screen-xl">
-      <div className="max-w-2xl mx-auto text-center mb-16">
+    <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20 max-w-screen-xl">
+      <div className="max-w-2xl mx-auto text-center mb-10 md:mb-16">
         <span className="text-gray-medium font-semibold uppercase tracking-wider text-xs mb-4 block">Membership</span>
-        <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-brand-black mb-6 leading-tight">Support the Narrative.</h1>
-        <p className="text-xl text-gray-dark font-serif leading-relaxed">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-brand-black mb-4 md:mb-6 leading-tight">Support the Narrative.</h1>
+        <p className="text-lg md:text-xl text-gray-dark font-serif leading-relaxed">
           Independent journalism is fragile. It requires resources, time, and freedom from corporate interests. Your contribution ensures we stay true to the story.
         </p>
       </div>
@@ -40,12 +40,12 @@ export const SupportPage: React.FC = () => {
 export const AboutPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
-       <div className="container mx-auto px-6 py-20 max-w-screen-xl">
+       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20 max-w-screen-xl">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
 
              <div className="lg:col-span-5">
-                <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-brand-black leading-tight mb-6">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-brand-black leading-tight mb-4 md:mb-6">
                    We are<br />the new<br />chronicle.
                 </h1>
                 <div className="w-12 h-0.5 bg-brand-red mb-6"></div>
@@ -96,12 +96,12 @@ export const AboutPage: React.FC = () => {
 
 export const ContactPage: React.FC = () => {
   return (
-    <div className="container mx-auto px-6 py-20 max-w-screen-xl">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20 max-w-screen-xl">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
 
          <div className="lg:col-span-5">
-            <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-brand-black mb-6 leading-tight">Get in Touch.</h1>
-            <p className="text-xl font-serif text-gray-dark leading-relaxed mb-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-brand-black mb-4 md:mb-6 leading-tight">Get in Touch.</h1>
+            <p className="text-lg md:text-xl font-serif text-gray-dark leading-relaxed mb-6 md:mb-8">
                Have a story pitch, a partnership inquiry, or feedback on our coverage? We read every email.
             </p>
             <div className="space-y-5 font-serif text-lg">

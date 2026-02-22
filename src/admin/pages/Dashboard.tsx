@@ -95,36 +95,36 @@ export function Dashboard() {
   return (
     <div>
       {/* Header */}
-      <div className="flex justify-between items-end mb-10">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-6 md:mb-10">
         <div>
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Overview</p>
-          <h1 className="text-3xl font-bold text-brand-black tracking-tight">Dashboard</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-brand-black tracking-tight">Dashboard</h1>
         </div>
         <Link
           to="/admin/articles/new"
-          className="flex items-center gap-2 bg-brand-red text-white px-5 py-2.5 text-sm font-semibold uppercase tracking-wider hover:bg-brand-black transition-colors"
+          className="flex items-center justify-center gap-2 bg-brand-red text-white px-5 py-2.5 text-sm font-semibold uppercase tracking-wider hover:bg-brand-black transition-colors"
         >
           <Plus size={16} /> New Article
         </Link>
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 mb-8 md:mb-12">
         {statCards.map(({ label, value, icon: Icon, link }) => (
-          <Link key={label} to={link} className="group bg-white border border-gray-200 p-6 hover:border-brand-red transition-colors">
-            <div className="flex items-start justify-between mb-4">
-              <Icon size={20} className="text-gray-400 group-hover:text-brand-red transition-colors" />
-              <ArrowRight size={14} className="text-gray-300 group-hover:text-brand-red transition-colors" />
+          <Link key={label} to={link} className="group bg-white border border-gray-200 p-4 md:p-6 hover:border-brand-red transition-colors">
+            <div className="flex items-start justify-between mb-2 md:mb-4">
+              <Icon size={18} className="text-gray-400 group-hover:text-brand-red transition-colors" />
+              <ArrowRight size={14} className="text-gray-300 group-hover:text-brand-red transition-colors hidden sm:block" />
             </div>
-            <p className="text-3xl font-bold text-brand-black tracking-tight">{value}</p>
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1">{label}</p>
+            <p className="text-2xl md:text-3xl font-bold text-brand-black tracking-tight">{value}</p>
+            <p className="text-[10px] md:text-xs font-semibold text-gray-400 uppercase tracking-wider mt-1">{label}</p>
           </Link>
         ))}
       </div>
 
       {/* Recent Articles */}
       <div className="bg-white border border-gray-200">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
           <div className="flex items-center gap-2">
             <Clock size={16} className="text-gray-400" />
             <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Recent Articles</h2>
@@ -146,7 +146,7 @@ export function Dashboard() {
               <Link
                 key={article.id}
                 to={`/admin/articles/${article.id}`}
-                className="flex items-center justify-between px-6 py-4 hover:bg-gray-50 transition-colors group"
+                className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 hover:bg-gray-50 transition-colors group"
               >
                 <div className="min-w-0 flex-1">
                   <h3 className="font-semibold text-brand-black text-sm tracking-tight group-hover:text-brand-red transition-colors truncate">

@@ -7,8 +7,8 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gray-50">
-      <div className="container mx-auto px-6 max-w-screen-xl py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl py-8 md:py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
 
           {/* Brand */}
           <div>
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-200">
-        <div className="container mx-auto px-6 max-w-screen-xl py-5">
+        <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl py-4 md:py-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-400">
             <p>&copy; {new Date().getFullYear()} The Good Indian Post. All rights reserved.</p>
             <div className="flex gap-5">

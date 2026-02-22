@@ -72,15 +72,15 @@ export function MediaLibrary() {
   return (
     <div>
       {/* Header */}
-      <div className="flex justify-between items-end mb-10">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-6 md:mb-10">
         <div>
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Manage</p>
-          <h1 className="text-3xl font-bold text-brand-black tracking-tight">Media Library</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-brand-black tracking-tight">Media Library</h1>
         </div>
         <button
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
-          className="flex items-center gap-2 bg-brand-red text-white px-5 py-2.5 text-sm font-semibold uppercase tracking-wider hover:bg-brand-black transition-colors disabled:opacity-50"
+          className="flex items-center justify-center gap-2 bg-brand-red text-white px-5 py-2.5 text-sm font-semibold uppercase tracking-wider hover:bg-brand-black transition-colors disabled:opacity-50"
         >
           <Upload size={16} /> {uploading ? 'Uploading...' : 'Upload'}
         </button>
@@ -96,7 +96,7 @@ export function MediaLibrary() {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
           {media.map(item => (
             <div key={item.name} className="bg-white border border-gray-200 overflow-hidden group relative hover:border-brand-red transition-colors">
               <div className="aspect-square bg-gray-100">

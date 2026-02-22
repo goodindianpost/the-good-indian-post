@@ -94,7 +94,7 @@ const ArticlePage: React.FC = () => {
             <div className="h-4 w-32 bg-gray-200 rounded" />
           </div>
         </div>
-        <div className="container mx-auto px-6 max-w-screen-lg mb-16">
+        <div className="container mx-auto px-4 sm:px-6 max-w-screen-lg mb-10 md:mb-16">
           <div className="aspect-[16/9] bg-gray-200 rounded" />
         </div>
         <div className="container mx-auto px-6 max-w-screen-lg">
@@ -124,24 +124,24 @@ const ArticlePage: React.FC = () => {
     <article className="bg-white min-h-screen pb-24">
 
       {/* Header */}
-      <header className="container mx-auto px-6 max-w-screen-lg pt-16 pb-10">
+      <header className="container mx-auto px-4 sm:px-6 max-w-screen-lg pt-8 md:pt-16 pb-6 md:pb-10">
         <Link to={`/category/${categorySlug}`} className="inline-block text-gray-medium font-semibold uppercase tracking-wider text-xs mb-6 hover:text-brand-black transition-colors">
           {categoryName}
         </Link>
 
-        <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-brand-black mb-6 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-brand-black mb-4 md:mb-6 leading-tight">
           {article.title}
         </h1>
 
         {article.subtitle && (
-          <p className="text-xl text-gray-dark font-serif leading-relaxed mb-8 max-w-2xl">
+          <p className="text-lg md:text-xl text-gray-dark font-serif leading-relaxed mb-5 md:mb-8 max-w-2xl">
             {article.subtitle}
           </p>
         )}
 
         {/* Meta */}
         <div className="flex items-center justify-between py-3">
-          <div className="flex items-center gap-6 text-base text-gray-medium">
+          <div className="flex items-center gap-3 sm:gap-6 text-sm sm:text-base text-gray-medium">
             <span className="font-display font-medium text-brand-black">{authorName || 'Staff Writer'}</span>
             <span>{publishDate && new Date(publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
           </div>
@@ -151,7 +151,7 @@ const ArticlePage: React.FC = () => {
 
       {/* Hero Image */}
       {article.cover_image && (
-        <div className="container mx-auto px-6 max-w-screen-lg mb-16">
+        <div className="container mx-auto px-4 sm:px-6 max-w-screen-lg mb-10 md:mb-16">
           <div className="aspect-[16/9] w-full bg-gray-light overflow-hidden">
             <img src={article.cover_image} alt={article.title} className="w-full h-full object-cover" />
           </div>
@@ -159,7 +159,7 @@ const ArticlePage: React.FC = () => {
       )}
 
       {/* Content */}
-      <div className="container mx-auto px-6 max-w-screen-lg">
+      <div className="container mx-auto px-4 sm:px-6 max-w-screen-lg">
         <div className="article-content max-w-screen-md" dangerouslySetInnerHTML={{ __html: renderContent(article.content) }} />
       </div>
 
@@ -168,13 +168,13 @@ const ArticlePage: React.FC = () => {
         const moreStories = allArticles.filter(a => a.id !== article.id).slice(0, 4);
         if (!moreStories.length) return null;
         return (
-          <section className="mt-20">
-            <div className="container mx-auto px-6 max-w-screen-xl pt-16 pb-20">
+          <section className="mt-12 md:mt-20">
+            <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl pt-10 pb-12 md:pt-16 md:pb-20">
               <div className="flex items-center gap-4 mb-10">
                 <span className="w-1 h-8 flex-shrink-0 bg-brand-red" />
                 <h2 className="font-display text-2xl font-bold tracking-tight">More Stories</h2>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7">
                 {moreStories.map(a => (
                   <ArticleCard key={a.id} article={a} variant="standard" />
                 ))}

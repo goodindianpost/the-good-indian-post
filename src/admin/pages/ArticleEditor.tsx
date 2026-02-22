@@ -126,22 +126,22 @@ export function ArticleEditor() {
   return (
     <div>
       {/* Top Bar */}
-      <div className="flex items-center justify-between mb-10">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 md:mb-10">
         <button onClick={() => navigate('/admin/articles')} className="flex items-center gap-2 text-xs font-semibold text-gray-400 uppercase tracking-wider hover:text-brand-black transition-colors">
           <ArrowLeft size={14} /> Back to Articles
         </button>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           {/* Tabs */}
           <div className="flex border border-gray-200">
             <button
               onClick={() => setTab('editor')}
-              className={`flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${tab === 'editor' ? 'bg-brand-black text-white' : 'text-gray-400 hover:text-brand-black'}`}
+              className={`flex items-center gap-1.5 px-3 sm:px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${tab === 'editor' ? 'bg-brand-black text-white' : 'text-gray-400 hover:text-brand-black'}`}
             >
               <PenLine size={13} /> Editor
             </button>
             <button
               onClick={() => setTab('preview')}
-              className={`flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${tab === 'preview' ? 'bg-brand-black text-white' : 'text-gray-400 hover:text-brand-black'}`}
+              className={`flex items-center gap-1.5 px-3 sm:px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${tab === 'preview' ? 'bg-brand-black text-white' : 'text-gray-400 hover:text-brand-black'}`}
             >
               <Eye size={13} /> Preview
             </button>
@@ -149,7 +149,7 @@ export function ArticleEditor() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-2 bg-brand-red text-white px-5 py-2.5 text-sm font-semibold uppercase tracking-wider hover:bg-brand-black transition-colors disabled:opacity-50"
+            className="flex items-center gap-2 bg-brand-red text-white px-4 sm:px-5 py-2.5 text-sm font-semibold uppercase tracking-wider hover:bg-brand-black transition-colors disabled:opacity-50"
           >
             <Save size={16} /> {saving ? 'Saving...' : 'Save'}
           </button>
@@ -162,20 +162,20 @@ export function ArticleEditor() {
           {/* Main Content */}
           <div className="space-y-6">
             {/* Title */}
-            <div className="bg-white border border-gray-200 px-6 py-5">
+            <div className="bg-white border border-gray-200 px-4 sm:px-6 py-4 sm:py-5">
               <input
                 type="text"
                 placeholder="Article Title"
                 value={title}
                 onChange={e => { setTitle(e.target.value); if (isNew) setSlug(generateSlug(e.target.value)) }}
-                className="w-full text-2xl font-bold text-brand-black tracking-tight placeholder:text-gray-300 focus:outline-none"
+                className="w-full text-xl sm:text-2xl font-bold text-brand-black tracking-tight placeholder:text-gray-300 focus:outline-none"
               />
             </div>
 
             {/* Editor */}
             <div className="bg-white border border-gray-200">
               {editor && (
-                <div className="flex items-center gap-0.5 px-4 py-2 border-b border-gray-200 bg-gray-50">
+                <div className="flex items-center gap-0.5 px-3 sm:px-4 py-2 border-b border-gray-200 bg-gray-50 overflow-x-auto scrollbar-hide">
                   <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} active={editor.isActive('bold')}><Bold size={15} /></ToolbarButton>
                   <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} active={editor.isActive('italic')}><Italic size={15} /></ToolbarButton>
                   <div className="w-px h-5 bg-gray-200 mx-1" />
@@ -188,13 +188,13 @@ export function ArticleEditor() {
                   <ToolbarButton onClick={() => editor.chain().focus().setHorizontalRule().run()}><Minus size={15} /></ToolbarButton>
                 </div>
               )}
-              <div className="px-6 py-5">
+              <div className="px-4 sm:px-6 py-4 sm:py-5">
                 <EditorContent editor={editor} />
               </div>
             </div>
 
             {/* Excerpt */}
-            <div className="bg-white border border-gray-200 px-6 py-5">
+            <div className="bg-white border border-gray-200 px-4 sm:px-6 py-4 sm:py-5">
               <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Excerpt</label>
               <textarea
                 value={excerpt}
@@ -209,13 +209,13 @@ export function ArticleEditor() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Cover Image */}
-            <div className="bg-white border border-gray-200 px-6 py-5">
+            <div className="bg-white border border-gray-200 px-4 sm:px-6 py-4 sm:py-5">
               <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Cover Image</label>
               <ImageUpload value={coverImage} onChange={setCoverImage} />
             </div>
 
             {/* Author Name */}
-            <div className="bg-white border border-gray-200 px-6 py-5">
+            <div className="bg-white border border-gray-200 px-4 sm:px-6 py-4 sm:py-5">
               <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Author Name</label>
               <input
                 type="text"
@@ -227,7 +227,7 @@ export function ArticleEditor() {
             </div>
 
             {/* Category */}
-            <div className="bg-white border border-gray-200 px-6 py-5">
+            <div className="bg-white border border-gray-200 px-4 sm:px-6 py-4 sm:py-5">
               <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Category</label>
               <select
                 value={categoryId}
@@ -240,7 +240,7 @@ export function ArticleEditor() {
             </div>
 
             {/* Status */}
-            <div className="bg-white border border-gray-200 px-6 py-5">
+            <div className="bg-white border border-gray-200 px-4 sm:px-6 py-4 sm:py-5">
               <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Status</label>
               <select
                 value={status}
@@ -255,7 +255,7 @@ export function ArticleEditor() {
             </div>
 
             {/* Featured */}
-            <div className="bg-white border border-gray-200 px-6 py-5">
+            <div className="bg-white border border-gray-200 px-4 sm:px-6 py-4 sm:py-5">
               <label className={`flex items-center gap-3 ${!featured && featuredCount >= 5 ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}>
                 <div className="relative">
                   <input
@@ -286,28 +286,28 @@ export function ArticleEditor() {
       {/* Preview Tab */}
       {tab === 'preview' && (
         <div className="bg-white border border-gray-200">
-          <article className="max-w-screen-md mx-auto px-6 py-16">
+          <article className="max-w-screen-md mx-auto px-4 sm:px-6 py-8 sm:py-16">
             {/* Category */}
             {selectedCategory && (
-              <span className="inline-block text-gray-500 font-semibold uppercase tracking-wider text-xs mb-6">
+              <span className="inline-block text-gray-500 font-semibold uppercase tracking-wider text-xs mb-4 sm:mb-6">
                 {selectedCategory.name}
               </span>
             )}
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-brand-black mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-brand-black mb-4 sm:mb-6 leading-tight">
               {title || 'Untitled Article'}
             </h1>
 
             {/* Excerpt */}
             {excerpt && (
-              <p className="text-xl text-gray-500 font-serif leading-relaxed mb-8 max-w-2xl">
+              <p className="text-lg sm:text-xl text-gray-500 font-serif leading-relaxed mb-6 sm:mb-8 max-w-2xl">
                 {excerpt}
               </p>
             )}
 
             {/* Meta */}
-            <div className="flex items-center gap-8 py-4 mb-10 border-t border-b border-gray-200">
+            <div className="flex items-center gap-6 sm:gap-8 py-3 sm:py-4 mb-6 sm:mb-10 border-t border-b border-gray-200">
               <div>
                 <span className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Status</span>
                 <span className="font-display text-sm capitalize">{status}</span>
@@ -322,7 +322,7 @@ export function ArticleEditor() {
 
             {/* Cover Image */}
             {coverImage && (
-              <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden mb-12">
+              <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden mb-8 sm:mb-12">
                 <img src={coverImage} alt={title} className="w-full h-full object-cover" />
               </div>
             )}
