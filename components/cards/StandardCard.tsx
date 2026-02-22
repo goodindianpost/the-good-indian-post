@@ -17,7 +17,7 @@ const StandardCard: React.FC<{ article: ArticleData }> = ({ article }) => {
         </span>
         <span className="text-sm text-gray-400">{publishDate ? new Date(publishDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : ''}</span>
       </div>
-      <h3 className="font-display text-xl font-semibold tracking-tight leading-snug mb-2 group-hover:text-brand-red transition-colors duration-200">{article.title}</h3>
+      <h3 className="font-display text-xl font-semibold tracking-tight leading-snug mb-2 group-hover:text-brand-red transition-colors duration-200 line-clamp-3">{article.title}</h3>
       {article.excerpt && (
         <p className="text-base text-gray-500 leading-relaxed line-clamp-2">{article.excerpt}</p>
       )}

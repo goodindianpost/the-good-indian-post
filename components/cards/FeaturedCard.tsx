@@ -19,7 +19,7 @@ const FeaturedCard: React.FC<{ article: ArticleData }> = ({ article }) => {
         </span>
         <span className="text-sm text-gray-400">{publishDate ? new Date(publishDate).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' }) : ''}</span>
       </div>
-      <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-3 group-hover:text-brand-red transition-colors duration-200">{article.title}</h2>
+      <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-3 group-hover:text-brand-red transition-colors duration-200 line-clamp-3">{article.title}</h2>
       {article.excerpt && (
         <p className="text-lg text-gray-500 leading-relaxed mb-3 line-clamp-2">{article.excerpt}</p>
       )}
