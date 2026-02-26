@@ -45,15 +45,20 @@ const Header: React.FC = () => {
         <nav className="hidden md:block border-t border-gray-200">
           <div className="container mx-auto px-4 sm:px-6 max-w-screen-xl">
             <div className="flex items-center justify-center gap-10 py-3">
-              {categories.map((cat) => (
-                <Link
-                  key={cat}
-                  to={`/category/${cat}`}
-                  className="font-display text-sm text-gray-700 hover:text-brand-red transition-colors whitespace-nowrap"
-                >
-                  {cat}
-                </Link>
-              ))}
+              {categories.map((cat) => {
+                const isActive = location.pathname.toLowerCase() === `/category/${cat.toLowerCase().replace(/\s+/g, '-')}`;
+                return (
+                  <Link
+                    key={cat}
+                    to={`/category/${cat}`}
+                    className={`font-display text-sm transition-colors whitespace-nowrap ${
+                      isActive ? 'text-brand-red font-semibold' : 'text-gray-700 hover:text-brand-red'
+                    }`}
+                  >
+                    {cat}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div className="border-b border-gray-200" />
@@ -83,16 +88,21 @@ const Header: React.FC = () => {
 
         <div className="flex-grow overflow-y-auto px-6 py-8">
           <nav className="space-y-1">
-            {categories.map((cat) => (
-              <Link
-                key={cat}
-                to={`/category/${cat}`}
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-lg font-bold text-brand-black py-3 border-b border-gray-100 hover:text-brand-red transition-colors"
-              >
-                {cat}
-              </Link>
-            ))}
+            {categories.map((cat) => {
+              const isActive = location.pathname.toLowerCase() === `/category/${cat.toLowerCase().replace(/\s+/g, '-')}`;
+              return (
+                <Link
+                  key={cat}
+                  to={`/category/${cat}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block text-lg font-bold py-3 border-b border-gray-100 transition-colors ${
+                    isActive ? 'text-brand-red' : 'text-brand-black hover:text-brand-red'
+                  }`}
+                >
+                  {cat}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="mt-10 pt-6 border-t border-gray-200 space-y-4">
