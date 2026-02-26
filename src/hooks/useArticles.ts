@@ -14,12 +14,12 @@ export type Article = {
   author_name: string | null
   published_at: string | null
   created_at: string
-  category: { id: string; name: string; slug: string; color: string } | null
+  category: { id: string; name: string; slug: string; color: string; description: string | null } | null
 }
 
 const ARTICLE_SELECT = `
   id, title, slug, subtitle, excerpt, content, cover_image, status, featured, author_name, published_at, created_at,
-  category:categories(id, name, slug, color)
+  category:categories(id, name, slug, color, description)
 `
 
 export function useArticles() {

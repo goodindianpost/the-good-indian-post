@@ -28,8 +28,9 @@ const CategoryPage: React.FC = () => {
     );
   }
 
-  // Get category display name from first article or use param
+  // Get category info from first article or use param
   const categoryDisplayName = articles[0]?.category?.name || categoryName;
+  const categoryDescription = articles[0]?.category?.description;
 
   if (articles.length === 0) {
     return (
@@ -48,9 +49,11 @@ const CategoryPage: React.FC = () => {
         <div className="lg:col-span-8">
           <header className="mb-6 md:mb-10">
             <h1 className="text-2xl md:text-3xl font-display font-bold tracking-tight text-brand-black mb-2 md:mb-3">{categoryDisplayName}</h1>
-            <p className="text-base md:text-lg text-gray-dark font-serif">
-              Discover the latest stories, news, and perspectives in {categoryDisplayName}.
-            </p>
+            {categoryDescription && (
+              <p className="text-base md:text-lg text-gray-dark font-serif">
+                {categoryDescription}
+              </p>
+            )}
           </header>
 
           <div className="flex flex-col gap-6 md:gap-10">
