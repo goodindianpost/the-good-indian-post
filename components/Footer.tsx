@@ -44,10 +44,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-display text-xs font-semibold text-gray-400 mb-3">Follow Us</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">Twitter / X</a></li>
-              <li><a href="#" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">Instagram</a></li>
+              <li><a href="https://x.com/goodindianpost" target="_blank" rel="noopener noreferrer" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">Twitter / X</a></li>
+              <li><a href="https://www.instagram.com/thegoodindianpost" target="_blank" rel="noopener noreferrer" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">Instagram</a></li>
               <li><a href="#" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="font-display text-sm text-gray-600 hover:text-brand-black transition-colors">YouTube</a></li>
             </ul>
           </div>
 
